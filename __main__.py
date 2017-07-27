@@ -1,5 +1,5 @@
+#!/usr/bin/env python
 # coding=utf-8
-# flake8: noqa
 # pylint: disable=missing-docstring
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
@@ -8,11 +8,6 @@
 
 from __future__ import absolute_import
 
-from . import buildOptions
-from . import compareJIT
-from . import compileShell
-from . import inspectShell
-from . import jsInteresting
-from . import loopjsfunfuzz
-from . import pinpoint
-from . import shellFlags
+from .bot import main
+
+main()

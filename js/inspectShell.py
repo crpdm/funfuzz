@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-# pylint: disable=import-error,invalid-name,missing-docstring,wrong-import-position
+# pylint: disable=invalid-name,missing-docstring
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,20 +10,10 @@ from __future__ import absolute_import, print_function
 
 import os
 import platform
-import sys
 
-path0 = os.path.dirname(os.path.abspath(__file__))
-path1 = os.path.abspath(os.path.join(path0, os.pardir, 'util'))
-sys.path.append(path1)
-import subprocesses as sps
+import lithium.interestingness.envVars as envVars
 
-path2 = os.path.abspath(os.path.join(path0, os.pardir, os.pardir, 'lithium', 'interestingness'))
-sys.path.append(path2)
-if not os.path.exists(path2):
-    print("Please check out Lithium and FuzzManager side-by-side with funfuzz. "
-          "Links in https://github.com/MozillaSecurity/funfuzz/#setup")
-    sys.exit(2)
-import envVars
+from ..util import subprocesses as sps
 
 RUN_NSPR_LIB = ''
 RUN_PLDS_LIB = ''

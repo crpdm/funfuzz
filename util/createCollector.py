@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-# pylint: disable=import-error,invalid-name,missing-docstring,wrong-import-position
+# pylint: disable=invalid-name,missing-docstring
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,7 +20,7 @@ if not os.path.exists(fuzzManagerPath):
           "Links in https://github.com/MozillaSecurity/funfuzz/#setup")
     sys.exit(2)
 sys.path.append(fuzzManagerPath)
-from Collector.Collector import Collector
+from Collector.Collector import Collector  # pylint: disable=import-error,wrong-import-position
 
 
 def createCollector(tool):

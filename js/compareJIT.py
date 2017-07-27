@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
-# pylint: disable=cell-var-from-loop,fixme,global-statement,import-error,invalid-name,missing-docstring
-# pylint: disable=no-member,too-many-arguments,too-many-branches,too-many-locals,wrong-import-position
+# pylint: disable=cell-var-from-loop,fixme,global-statement,invalid-name,missing-docstring,no-member,too-many-arguments
+# pylint: disable=too-many-branches,too-many-locals
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -13,20 +13,17 @@ import os
 import sys
 from optparse import OptionParser  # pylint: disable=deprecated-module
 
-import jsInteresting
-import pinpoint
-import shellFlags
+from . import jsInteresting
+from . import pinpoint
+from . import shellFlags
 
-path0 = os.path.dirname(os.path.abspath(__file__))
-path1 = os.path.abspath(os.path.join(path0, os.pardir, 'util'))
-sys.path.append(path1)
-import subprocesses as sps
-import lithOps
-import createCollector
+from ..util import subprocesses as sps
+from ..util import lithOps
+from ..util import createCollector
 
 # From FuzzManager (in sys.path thanks to import createCollector above)
-import FTB.Signatures.CrashInfo as CrashInfo
-from FTB.ProgramConfiguration import ProgramConfiguration
+import FTB.Signatures.CrashInfo as CrashInfo  # pylint: disable=import-error,wrong-import-order
+from FTB.ProgramConfiguration import ProgramConfiguration  # pylint: disable=import-error,wrong-import-order
 
 
 gOptions = ""

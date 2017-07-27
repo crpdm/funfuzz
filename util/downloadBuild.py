@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-# pylint: disable=attribute-defined-outside-init,fixme,import-error,invalid-name,missing-docstring
+# pylint: disable=attribute-defined-outside-init,fixme,invalid-name,missing-docstring
 # pylint: disable=too-many-branches,too-many-locals,too-many-statements
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
@@ -9,7 +9,7 @@
 
 from __future__ import absolute_import, print_function
 
-import ConfigParser
+import ConfigParser  # pylint: disable=import-error
 import os
 import platform
 import re
@@ -17,10 +17,10 @@ import shutil
 import stat
 import subprocess
 import sys
-from HTMLParser import HTMLParser
+from HTMLParser import HTMLParser  # pylint: disable=import-error
 
 from optparse import OptionParser  # pylint: disable=deprecated-module
-import subprocesses as sps
+from . import subprocesses as sps
 
 # Use curl/wget rather than urllib because urllib can't check certs.
 useCurl = False
