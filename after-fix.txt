@@ -2,7 +2,6 @@
 
 contents bot.py
 contents util/*.py
-contents detect/*.py
 contents js/*.py
 contents js/shared/*.js
 contents js/jsfunfuzz/*.js

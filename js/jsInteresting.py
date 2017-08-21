@@ -19,12 +19,12 @@ import lithium.interestingness.timed_run as timed_run
 import FTB.Signatures.CrashInfo as CrashInfo  # pylint: disable=import-error,no-name-in-module
 from FTB.ProgramConfiguration import ProgramConfiguration  # pylint: disable=import-error
 
+from . import detect_malloc_errors
 from . import inspectShell
-from ..detect import detect_malloc_errors
-from ..detect import findIgnoreLists
 from ..util import createCollector
 from ..util import fileManipulation
 from ..util import subprocesses as sps
+from ..util.findIgnoreLists import findIgnoreLists
 
 
 # Levels of unhappiness.
@@ -204,7 +204,7 @@ def truncateFile(fn, maxSize):
 
 
 def valgrindSuppressions(knownPath):
-    return ["--suppressions=" + filename for filename in findIgnoreLists.findIgnoreLists(knownPath, "valgrind.txt")]
+    return ["--suppressions=" + filename for filename in findIgnoreLists(knownPath, "valgrind.txt")]
 
 
 def deleteLogs(logPrefix):
