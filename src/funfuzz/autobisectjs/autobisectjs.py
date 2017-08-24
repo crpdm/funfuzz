@@ -23,7 +23,7 @@ from optparse import OptionParser  # pylint: disable=deprecated-module
 
 from lithium.interestingness.utils import rel_or_abs_import
 
-from . import knownBrokenEarliestWorking as kbew
+from . import known_broken_earliest_working as kbew
 from ..js import buildOptions
 from ..js import compileShell
 from ..js import inspectShell
@@ -103,7 +103,7 @@ def parseOpts():
                       help='Specify parameters for the js shell, e.g. -p "-a --ion-eager testcase.js".')
 
     # Specify how to treat revisions that fail to compile.
-    # (You might want to add these to kbew.knownBrokenRanges in knownBrokenEarliestWorking.py.)
+    # (You might want to add these to kbew.knownBrokenRanges in known_broken_earliest_working.py.)
     parser.add_option('-l', '--compilationFailedLabel', dest='compilationFailedLabel',
                       help="Specify how to treat revisions that fail to compile. "
                            "(bad, good, or skip) Defaults to '%default'")
@@ -120,7 +120,7 @@ def parseOpts():
     (options, args) = parser.parse_args()
     if not options.browserOptions:
         options.buildOptions = buildOptions.parseShellOptions(options.buildOptions)
-        options.skipRevs = ' + '.join(kbew.knownBrokenRanges(options.buildOptions))
+        options.skipRevs = ' + '.join(kbew.known_broken_ranges(options.buildOptions))
 
     options.paramList = [sps.normExpUserPath(x) for x in options.parameters.split(' ') if x]
     # First check that the testcase is present.
@@ -150,7 +150,7 @@ def parseOpts():
         options.testAndLabel = internalTestAndLabel(options)
 
     if not options.browserOptions:
-        earliestKnownQuery = kbew.earliestKnownWorkingRev(
+        earliestKnownQuery = kbew.earliest_known_working_rev(
             options.buildOptions, options.paramList + extraFlags, options.skipRevs)
 
     earliestKnown = ''
