@@ -10,7 +10,7 @@
 from __future__ import absolute_import
 
 from . import build_options
-from . import compareJIT
+from . import compare_jit
 from . import compileShell
 from . import detect_malloc_errors
 from . import inspectShell
