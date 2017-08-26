@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-# pylint: disable=invalid-name,literal-comparison,missing-docstring,too-many-arguments,too-many-branches,too-many-locals
+# pylint: disable=literal-comparison,missing-docstring,too-many-arguments,too-many-branches,too-many-locals
 # pylint: disable=too-many-statements
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
@@ -24,11 +24,12 @@ from ..util import fileManipulation
 from ..util.lithOps import LITH_FINISHED, LITH_PLEASE_CONTINUE, runLithium
 from ..util import subprocesses as sps
 
-p0 = os.path.dirname(os.path.abspath(__file__))
+p0 = os.path.dirname(os.path.abspath(__file__))  # pylint: disable=invalid-name
+# pylint: disable=invalid-name
 autobisectpy = os.path.abspath(os.path.join(p0, os.pardir, 'autobisectjs', 'autoBisect.py'))
 
 
-def pinpoint(itest, logPrefix, jsEngine, engineFlags, infilename,
+def pinpoint(itest, logPrefix, jsEngine, engineFlags, infilename,  # pylint: disable=invalid-name
              bisectRepo, buildOptionsStr, targetTime, suspiciousLevel):
     """Run Lithium and autobisect.
 
