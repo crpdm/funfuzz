@@ -272,7 +272,7 @@ def parseOptions(args):
     return options
 
 
-# loopjsfunfuzz.py uses parseOptions and ShellResult [with in_compare_jit = False]
+# loop.py uses parseOptions and ShellResult [with in_compare_jit = False]
 # compare_jit.py uses ShellResult [with in_compare_jit = True]
 
 # For use by Lithium and autoBisect. (autoBisect calls init multiple times because it changes the js engine name)

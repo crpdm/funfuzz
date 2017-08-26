@@ -15,6 +15,6 @@ from . import compileShell
 from . import detect_malloc_errors
 from . import inspect_shell
 from . import jsInteresting
-from . import loopjsfunfuzz
+from . import loop
 from . import pinpoint
 from . import shellFlags

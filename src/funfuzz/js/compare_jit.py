@@ -50,7 +50,7 @@ def ignoreSomeOfStderr(e):  # pylint: disable=invalid-name
     return lines
 
 
-# For use by loopjsfunfuzz.py
+# For use by loop.py
 # Returns True if any kind of bug is found
 def compare_jit(jsEngine,  # pylint: disable=invalid-name
                 flags, infilename, logPrefix, repo, build_options_str, targetTime, options):
