@@ -17,4 +17,4 @@ from . import inspect_shell
 from . import jsInteresting
 from . import loop
 from . import pinpoint
-from . import shellFlags
+from . import shell_flags

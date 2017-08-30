@@ -19,7 +19,7 @@ from FTB.ProgramConfiguration import ProgramConfiguration  # pylint: disable=imp
 
 from . import jsInteresting
 from . import pinpoint
-from . import shellFlags
+from . import shell_flags
 from ..util import subprocesses as sps
 from ..util import lithOps
 from ..util import createCollector
@@ -90,7 +90,7 @@ def compareLevel(jsEngine,  # pylint: disable=invalid-name
     # we also use it directly for knownPath, timeout, and collector
     # Return: (lev, crashInfo) or (jsInteresting.JS_FINE, None)
 
-    combos = shellFlags.basicFlagSets(jsEngine)
+    combos = shell_flags.basicFlagSets(jsEngine)
 
     if quickMode:
         # Only used during initial fuzzing. Allowed to have false negatives.
