@@ -23,7 +23,7 @@ import traceback
 from optparse import OptionParser  # pylint: disable=deprecated-module
 
 from . import build_options
-from . import inspectShell
+from . import inspect_shell
 from ..util import hgCmds
 from ..util import s3cache
 from ..util import subprocesses as sps
@@ -134,7 +134,7 @@ class CompiledShell(object):
         lDir = self.getJsObjdir()
         libsList = [
             sps.normExpUserPath(os.path.join(lDir, 'dist', 'bin', runLib))
-            for runLib in inspectShell.ALL_RUN_LIBS
+            for runLib in inspect_shell.ALL_RUN_LIBS
         ]
         return libsList
 
@@ -232,7 +232,7 @@ def cfgJsCompile(shell):
                 print("Trying once more...")
                 continue
     compileJs(shell)
-    inspectShell.verifyBinary(shell)
+    inspect_shell.verifyBinary(shell)
 
     compileLog = sps.normExpUserPath(os.path.join(shell.getShellCacheDir(),
                                                   shell.getShellNameWithoutExt() + '.fuzzmanagerconf'))
